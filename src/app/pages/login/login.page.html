@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="colorencabezado">
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="colorcontenido">
+
+  <div class="img-container">
+    <ion-img src="assets/login.svg" class="img-login"></ion-img>
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" class="login-button">Iniciar sesión</ion-button>
+
+</ion-content>
+
+<style>
+  .img-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .login-button {
+    margin-top: 20px;
+  }
+</style>
+
