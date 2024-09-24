@@ -5,7 +5,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="colorcontenido">
-
   <div class="img-container">
     <ion-img src="assets/login.svg" class="img-login"></ion-img>
   </div>
@@ -13,17 +12,25 @@
   <ion-list>
     <ion-item>
       <ion-label position="floating">Usuario</ion-label>
-      <ion-input required></ion-input>
+      <ion-input required [(ngModel)]="formLogin.usuario"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-input
+        type="password"
+        required
+        [(ngModel)]="formLogin.password
+      "
+      ></ion-input>
     </ion-item>
   </ion-list>
 
-  <ion-button expand="full" class="login-button">Iniciar sesión</ion-button>
+  <ion-button expand="full" class="login-button" (click)="iniciarSesion()"
+    >Iniciar sesión</ion-button
+  >
 
+  <ion-button [routerLink]="['/registro']" expand="full">Registrate</ion-button>
 </ion-content>
 
 <style>
@@ -37,4 +44,3 @@
     margin-top: 20px;
   }
 </style>
-
