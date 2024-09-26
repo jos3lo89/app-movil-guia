@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
  export interface UserI {
   usuario: string,
@@ -26,13 +26,14 @@ export class LoginPage implements OnInit {
     console.log('usuario: ', this.formLogin.usuario);
     console.log('password: ', this.formLogin.password);
 
-    const newUser = {
-      usuario: this.formLogin.usuario,
-      password: this.formLogin.password,
+    const newUser: NavigationExtras = {
+      queryParams:{
+        usuario: this.formLogin.usuario,
+
+        password: this.formLogin.password,
+      }
     };
 
-    localStorage.setItem('auth-user', JSON.stringify(newUser));
-
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home'], newUser);
   }
 }

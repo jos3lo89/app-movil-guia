@@ -1,8 +1,11 @@
-.text-main {
-  color: blue;
-  text-align: center;
+.colorencabezado {
+  --background: rgb(77,56,242)
+  --color: white
 }
 
-.text-span {
-  color: yellow;
+
+.colorcontenido {
+  --background: rgb(54,53,56)
+
+  --color: black
 }
