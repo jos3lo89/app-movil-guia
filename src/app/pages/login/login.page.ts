@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
- export interface UserI {
-  usuario: string,
-    password: string,
+export interface UserI {
+  usuario: string;
+  password: string;
 }
-
 
 @Component({
   selector: 'app-login',
@@ -13,9 +13,11 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private storage: Storage) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    await this.storage.create();
+  }
 
   formLogin = {
     usuario: '',
@@ -27,13 +29,16 @@ export class LoginPage implements OnInit {
     console.log('password: ', this.formLogin.password);
 
     const newUser: NavigationExtras = {
-      queryParams:{
+      queryParams: {
         usuario: this.formLogin.usuario,
 
         password: this.formLogin.password,
-      }
+      },
     };
 
     this.router.navigate(['/home'], newUser);
+
+    this.storage.set('1Usuario', this.formLogin.usuario);
+    this.storage.set('2contrasena', this.formLogin.password);
   }
 }
