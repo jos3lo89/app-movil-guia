@@ -11,14 +11,24 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginPageModule),
-  },  {
+  },
+  {
     path: 'registro',
-    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./pages/registro/registro.module').then(m => m.RegistroPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
+  {
+    path: 'not-found',
+    loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundPageModule)
+  },
+  {
+    path: "**",
+    redirectTo: "not-found",
+    pathMatch: "full"
+  }
 
 ];
 
@@ -28,4 +38,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
